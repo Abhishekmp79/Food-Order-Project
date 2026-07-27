@@ -24,7 +24,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="fo-footer-bottom">
-        © {new Date().getFullYear()} Food Order · Built by Abhishek 🍃
+        © {new Date().getFullYear()} Food Order · Built by Abhishek Manjunath Pujar🍃
       </div>
     </footer>
   );
