@@ -1,3 +1,9 @@
+const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
+const dotenv = require("dotenv");
+dotenv.config({ path: "./config/config.env" });
+
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+
 exports.processPayment = catchAsyncErrors(async(req, res, next) => {
     try {
         const frontendUrl = req.body.frontendUrl || process.env.FRONTEND_URL;
@@ -9,7 +15,6 @@ exports.processPayment = catchAsyncErrors(async(req, res, next) => {
                     currency: "inr",
                     product_data: {
                         name: food.name || "Food Item",
-                        // ⚠️ images removed — broken Bing/Brave URLs break Stripe checkout
                     },
                     unit_amount: Math.round(Number(food.price || 0) * 100),
                 },
@@ -40,7 +45,14 @@ exports.processPayment = catchAsyncErrors(async(req, res, next) => {
 
         res.status(200).json({ url: session.url });
     } catch (err) {
-        console.log("⚠️ STRIPE ERROR:", err.message); // shows the real reason in logs
+        console.log("⚠️ STRIPE ERROR:", err.message);
         return next(err);
     }
+});
+
+// Send stripe API Key => /api/v1/stripeapi
+exports.sendStripApi = catchAsyncErrors(async(req, res, next) => {
+    res.status(200).json({
+        stripeApiKey: process.env.STRIPE_API_KEY,
+    });
 });
