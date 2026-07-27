@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/actions/userActions";
 import { clearErrors } from "../../redux/slices/userSlice";
+import BackButton from "../layout/BackButton";
 
 const Register = () => {
 
@@ -72,6 +73,8 @@ const Register = () => {
             setUser({ ...user, [e.target.name]: e.target.value });
         }
     };
+
+    <BackButton to="/" />
 
     return (
         <>

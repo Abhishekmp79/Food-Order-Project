@@ -7,6 +7,7 @@ import { login } from "../../redux/actions/userActions";
 import { clearErrors } from "../../redux/slices/userSlice";
 
 import { toast } from "react-toastify";
+import BackButton from "../layout/BackButton";
 
 const Login = () => {
     const [email, setEmail] = useState("");
@@ -35,6 +36,8 @@ const Login = () => {
         e.preventDefault();
         dispatch(login(email, password));
     };
+
+    <BackButton to="/" />
 
     return (
         <>
@@ -70,9 +73,7 @@ const Login = () => {
                                 Forgot Password
                             </Link>
 
-                            <button className="btn btn-block py3">
-                                LOGIN
-                            </button>
+                            <button className="sh-btn w-100"><LOGIN></LOGIN></button>
 
                             <Link to="/users/signup" className="float-right mt-3">
                                 NEW USER?

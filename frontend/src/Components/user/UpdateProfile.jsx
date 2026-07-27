@@ -14,6 +14,8 @@ import { useNavigate } from "react-router-dom";
 
 import { toast } from "react-toastify";
 
+import BackButton from "../layout/BackButton";
+
 const UpdateProfile = () => {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -78,6 +80,8 @@ const UpdateProfile = () => {
 
         reader.readAsDataURL(e.target.files[0]);
     };
+
+    <BackButton to="/" />
 
     return (
         <>

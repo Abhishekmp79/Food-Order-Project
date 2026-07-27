@@ -7,6 +7,7 @@ import { getRestaurants } from "../../redux/actions/restaurantActions";
 import { myOrders } from "../../redux/actions/orderActions";
 import { clearErrors } from "../../redux/slices/orderSlice";
 import "./ListOrders.css";
+import BackButton from "../layout/BackButton";
 
 const ListOrders = () => {
   const dispatch = useDispatch();
@@ -36,7 +37,7 @@ const ListOrders = () => {
   }));
 
   return (
-    <div className="list-orders-container">
+    <><BackButton to="/" /><div className="list-orders-container">
       <h1 className="orders-title">My Orders</h1>
 
       {loading ? (
@@ -63,11 +64,9 @@ const ListOrders = () => {
                     <td>{row.amount}</td>
                     <td>
                       <span
-                        className={
-                          row.status.includes("Delivered")
-                            ? "status-delivered"
-                            : "status-pending"
-                        }
+                        className={row.status.includes("Delivered")
+                          ? "status-delivered"
+                          : "status-pending"}
                       >
                         {row.status}
                       </span>
@@ -94,7 +93,7 @@ const ListOrders = () => {
           </table>
         </div>
       )}
-    </div>
+    </div></>
   );
 };
 

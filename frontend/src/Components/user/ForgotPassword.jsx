@@ -4,6 +4,7 @@ import { forgotPassword } from "../../redux/actions/userActions";
 import { clearErrors } from "../../redux/slices/userSlice";
 
 import { toast } from "react-toastify";
+import BackButton from "../layout/BackButton";
 
 const ForgotPassword = () => {
     const [email, setEmail] = useState("");
@@ -33,6 +34,8 @@ const ForgotPassword = () => {
 
         dispatch(forgotPassword(formData));
     };
+
+    <BackButton to="/" />
 
     return (
         <>
