@@ -1,66 +1,46 @@
-const catchAsyncErrors = require("../middlewares/catchAsyncErrors");
-const dotenv = require("dotenv");
-dotenv.config({ path: "./config/config.env" });
+exports.processPayment = catchAsyncErrors(async(req, res, next) => {
+    try {
+        const frontendUrl = req.body.frontendUrl || process.env.FRONTEND_URL;
 
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
+        const line_items = req.body.items.map((item) => {
+            const food = (item && item.foodItem) || {};
+            return {
+                price_data: {
+                    currency: "inr",
+                    product_data: {
+                        name: food.name || "Food Item",
+                        // ⚠️ images removed — broken Bing/Brave URLs break Stripe checkout
+                    },
+                    unit_amount: Math.round(Number(food.price || 0) * 100),
+                },
+                quantity: item.quantity,
+            };
+        });
 
-exports.processPayment = catchAsyncErrors(async (req, res, next) => {
-  console.log(req.body);
-  const frontendUrl = req.body.frontendUrl || process.env.FRONTEND_URL;
+        const session = await stripe.checkout.sessions.create({
+            customer_email: req.user.email,
+            phone_number_collection: { enabled: true },
+            line_items: line_items,
+            mode: "payment",
+            shipping_address_collection: { allowed_countries: ["US", "IN"] },
+            shipping_options: [{
+                shipping_rate_data: {
+                    display_name: "Delivery Charges",
+                    type: "fixed_amount",
+                    fixed_amount: { amount: 5500, currency: "inr" },
+                    delivery_estimate: {
+                        minimum: { unit: "hour", value: 1 },
+                        maximum: { unit: "hour", value: 3 },
+                    },
+                },
+            }, ],
+            success_url: `${frontendUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
+            cancel_url: `${frontendUrl}/cart`,
+        });
 
-  const session = await stripe.checkout.sessions.create({
-    customer_email: req.user.email,
-    phone_number_collection: {
-      enabled: true,
-    },
-    line_items: req.body.items.map((item) => ({
-      price_data: {
-        currency: "inr",
-        product_data: {
-          name: item.foodItem.name,
-          images: [item.foodItem.images[0].url],
-        },
-        unit_amount: item.foodItem.price * 100,
-      },
-      quantity: item.quantity,
-    })),
-    mode: "payment",
-    shipping_address_collection: {
-      allowed_countries: ["US", "IN"],
-    },
-    shipping_options: [
-      {
-        shipping_rate_data: {
-          display_name: "Delivery Charges",
-          type: "fixed_amount",
-          fixed_amount: {
-            amount: 5500, // Amount in paise (e.g., 5500 = 55 INR)
-            currency: "inr",
-          },
-          delivery_estimate: {
-            minimum: {
-              unit: "hour",
-              value: 1,
-            },
-            maximum: {
-              unit: "hour",
-              value: 3,
-            },
-          },
-        },
-      },
-    ],
-    success_url: `${frontendUrl}/success?session_id={CHECKOUT_SESSION_ID}`,
-    cancel_url: `${frontendUrl}/cart`,
-  });
-  res.status(200).json({ url: session.url });
-});
-
-
-
-// Send stripe API Key   =>   /api/v1/stripeapi
-exports.sendStripApi = catchAsyncErrors(async (req, res, next) => {
-  res.status(200).json({
-    stripeApiKey: process.env.STRIPE_API_KEY,
-  });
+        res.status(200).json({ url: session.url });
+    } catch (err) {
+        console.log("⚠️ STRIPE ERROR:", err.message); // shows the real reason in logs
+        return next(err);
+    }
 });
