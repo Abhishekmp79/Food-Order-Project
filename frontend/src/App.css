@@ -1126,3 +1126,1004 @@ ul.CTAs a {
     font-size: 14px;
     margin-bottom: 22px;
 }
+
+
+/* ===== Header ===== */
+
+.sh-header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.sh-header-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.sh-brand {
+    font-family: Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--sh-primary);
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.sh-search-wrap {
+    flex: 1;
+    min-width: 180px;
+}
+
+.sh-nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.sh-nav-link {
+    color: var(--sh-dark);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 4px;
+    white-space: nowrap;
+}
+
+.sh-nav-link:hover {
+    color: var(--sh-primary);
+}
+
+.sh-badge {
+    background: var(--sh-primary);
+    color: #fff;
+    font-size: 11px;
+    border-radius: 999px;
+    padding: 1px 6px;
+    margin-left: 4px;
+}
+
+.sh-admin-link {
+    font-size: 12px;
+    color: #999;
+    text-decoration: none;
+    border-left: 1px solid #eee;
+    padding-left: 10px;
+}
+
+.sh-admin-link:hover {
+    color: var(--sh-primary);
+}
+
+
+/* ============ PREMIUM HEADER ============ */
+
+.fo-header {
+    background: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.fo-header-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+
+/* Brand */
+
+.fo-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.fo-brand-icon {
+    font-size: 24px;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #e63946, #f77f00);
+    box-shadow: 0 6px 16px rgba(230, 57, 70, 0.35);
+}
+
+.fo-brand-name {
+    font-family: Georgia, serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #1d3557;
+    letter-spacing: -0.5px;
+}
+
+.fo-brand-name span {
+    color: #e63946;
+}
+
+
+/* Nav links */
+
+.fo-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.fo-nav-link {
+    color: #455a64;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.fo-nav-link:hover {
+    background: #fdecee;
+    color: #e63946;
+}
+
+
+/* Search */
+
+.fo-search {
+    flex: 1;
+    max-width: 420px;
+}
+
+
+/* Actions row */
+
+.fo-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
+
+/* Cart button */
+
+.fo-cart-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    color: #1d3557;
+    padding: 9px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.fo-cart-btn:hover {
+    background: #fff;
+    border-color: #e63946;
+    color: #e63946;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+}
+
+.fo-cart-icon {
+    font-size: 18px;
+}
+
+.fo-cart-badge {
+    position: absolute;
+    top: -7px;
+    right: -7px;
+    background: #e63946;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+    min-width: 20px;
+    height: 20px;
+    border-radius: 999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 5px;
+    box-shadow: 0 2px 8px rgba(230, 57, 70, 0.5);
+}
+
+
+/* Ghost button (My Orders) */
+
+.fo-ghost-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    border: 1px solid #e9ecef;
+    color: #1d3557;
+    padding: 9px 16px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.fo-ghost-btn:hover {
+    border-color: #1d3557;
+    background: #1d3557;
+    color: #fff;
+}
+
+
+/* User chip */
+
+.fo-user-chip {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    padding: 5px 14px 5px 5px;
+    border-radius: 999px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.fo-user-chip:hover {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+}
+
+.fo-user-avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #e63946, #f77f00);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.fo-user-name {
+    font-weight: 600;
+    font-size: 14px;
+    color: #1d3557;
+}
+
+
+/* Logout */
+
+.fo-logout-btn {
+    background: transparent;
+    border: 1px solid #f1c7cb;
+    color: #e63946;
+    padding: 9px 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.fo-logout-btn:hover {
+    background: #e63946;
+    color: #fff;
+    border-color: #e63946;
+}
+
+
+/* Sign In — outline */
+
+.fo-signin-btn {
+    padding: 10px 22px;
+    border-radius: 10px;
+    border: 2px solid #e63946;
+    background: transparent;
+    color: #e63946;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.fo-signin-btn:hover {
+    background: #e63946;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+
+/* Sign Up — gradient */
+
+.fo-signup-btn {
+    padding: 12px 24px;
+    border-radius: 10px;
+    border: none;
+    background: linear-gradient(135deg, #e63946, #f77f00);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    box-shadow: 0 6px 16px rgba(230, 57, 70, 0.35);
+    transition: all 0.2s ease;
+}
+
+.fo-signup-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(230, 57, 70, 0.45);
+}
+
+
+/* Burger */
+
+.fo-burger {
+    display: none;
+    background: transparent;
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    width: 44px;
+    height: 44px;
+    font-size: 20px;
+    cursor: pointer;
+    color: #1d3557;
+}
+
+
+/* Mobile menu */
+
+.fo-mobile-menu {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 20px 20px;
+    border-top: 1px solid #f0f0f0;
+    background: #fff;
+}
+
+.fo-mobile-link {
+    padding: 13px 16px;
+    border-radius: 10px;
+    color: #1d3557;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: block;
+}
+
+.fo-mobile-link:hover {
+    background: #fdecee;
+    color: #e63946;
+}
+
+.fo-mobile-outline {
+    border: 2px solid #e63946;
+    color: #e63946;
+    text-align: center;
+}
+
+.fo-mobile-primary {
+    background: linear-gradient(135deg, #e63946, #f77f00);
+    color: #fff !important;
+    text-align: center;
+}
+
+.fo-mobile-logout {
+    color: #e63946;
+}
+
+.fo-admin {
+    font-size: 13px;
+    color: #9aa0a6 !important;
+}
+
+
+/* Responsive */
+
+@media (max-width: 992px) {
+    .fo-nav-links,
+    .fo-actions,
+    .fo-search {
+        display: none;
+    }
+    .fo-burger {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+    }
+    .fo-mobile-menu {
+        display: flex;
+    }
+}
+
+
+/* ============ FINAL COHESIVE THEME (paste at end) ============ */
+
+
+/* Clean professional background — everything sits on this */
+
+body {
+    background: #f5f5f7 !important;
+    color: #1d3557;
+    min-height: 100vh;
+}
+
+#root {
+    min-height: 100vh;
+    background: #f5f5f7;
+}
+
+main,
+main .container,
+.App {
+    background: transparent !important;
+}
+
+
+/* HEADER — clean white bar that matches */
+
+.fo-header {
+    background: #ffffff !important;
+    border-bottom: 1px solid #ececef !important;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, 0.05) !important;
+}
+
+
+/* AUTH CARDS (Login + Register) — identical white cards on the bg */
+
+.sh-card {
+    background: #ffffff !important;
+    border-radius: 18px !important;
+    box-shadow: 0 14px 44px rgba(0, 0, 0, 0.10) !important;
+    padding: 38px !important;
+    margin: 50px auto !important;
+    border: 1px solid #f0f0f0;
+}
+
+
+/* Inputs match everywhere */
+
+.sh-input,
+.sh-card .form-control,
+.sh-card input {
+    background: #ffffff !important;
+    border: 1px solid #e3e5e8 !important;
+    border-radius: 10px !important;
+    padding: 12px 14px !important;
+    font-size: 15px;
+}
+
+.sh-input:focus,
+.sh-card input:focus {
+    border-color: #e63946 !important;
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.13) !important;
+    outline: none;
+}
+
+.sh-title {
+    color: #1d3557 !important;
+}
+
+
+/* DASHBOARD CARDS — restaurant/food cards polished */
+
+.card {
+    background: #ffffff !important;
+    border: 1px solid #f0f0f0 !important;
+    border-radius: 16px !important;
+    box-shadow: 0 6px 22px rgba(0, 0, 0, 0.07) !important;
+    overflow: hidden;
+    height: 100%;
+    transition: transform 0.25s ease, box-shadow 0.25s ease !important;
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 38px rgba(0, 0, 0, 0.13) !important;
+}
+
+.card img,
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.card-body {
+    padding: 18px 20px !important;
+}
+
+.card-title,
+.card h5,
+.card h6 {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    color: #1d3557;
+}
+
+
+/* BUTTONS — consistent everywhere */
+
+.btn {
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+    transition: all 0.2s ease !important;
+}
+
+.btn-danger,
+.btn-primary {
+    background: linear-gradient(135deg, #e63946, #f77f00) !important;
+    border: none !important;
+    color: #fff !important;
+    box-shadow: 0 4px 14px rgba(230, 57, 70, 0.3);
+}
+
+.btn-danger:hover,
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(230, 57, 70, 0.42);
+}
+
+.btn-light,
+.btn-secondary {
+    background: #ffffff !important;
+    border: 1px solid #e9ecef !important;
+    color: #1d3557 !important;
+}
+
+.btn-light:hover,
+.btn-secondary:hover {
+    background: #1d3557 !important;
+    color: #fff !important;
+}
+
+
+/* Headings match */
+
+main h1,
+main h2,
+main h3 {
+    font-family: Georgia, serif;
+    font-weight: 700;
+    color: #1d3557;
+}
+
+
+/* ============ MATCH GREEN DASHBOARD (paste at END) ============ */
+
+
+/* 1. Restore your food-image dashboard background */
+
+html,
+body {
+    background-image: linear-gradient(0deg, rgba(250, 250, 250, 0.82), rgba(250, 250, 250, 0.86)), url("/images/flat-lay-green-vegetables-fruits.jpg") !important;
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-color: #fafafa !important;
+}
+
+#root {
+    background: transparent !important;
+}
+
+
+/* 2. HEADER = green bar (matches your original dashboard nav #056a3a) */
+
+.fo-header {
+    background: #056a3a !important;
+    border-bottom: none !important;
+    box-shadow: 0 4px 18px rgba(5, 106, 58, 0.25) !important;
+}
+
+.fo-brand-name {
+    color: #ffffff !important;
+}
+
+.fo-brand-name span {
+    color: #fa9c23 !important;
+}
+
+.fo-brand-icon {
+    background: linear-gradient(135deg, #fa9c23, #fd750d) !important;
+}
+
+.fo-nav-link {
+    color: #ffffff !important;
+}
+
+.fo-nav-link:hover {
+    color: #fa9c23 !important;
+    background: transparent !important;
+}
+
+.fo-nav-link::after {
+    background: #fa9c23 !important;
+}
+
+
+/* Header buttons sit on green bar */
+
+.fo-cart-btn {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    color: #fff !important;
+}
+
+.fo-cart-btn:hover {
+    background: #fff !important;
+    color: #056a3a !important;
+}
+
+.fo-cart-badge {
+    background: #fa9c23 !important;
+}
+
+.fo-ghost-btn {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #fff !important;
+}
+
+.fo-ghost-btn:hover {
+    background: #078347 !important;
+    color: #fff !important;
+}
+
+.fo-user-chip {
+    background: rgba(255, 255, 255, 0.15) !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.fo-user-name {
+    color: #fff !important;
+}
+
+.fo-logout-btn {
+    background: transparent !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+    color: #ffd6d6 !important;
+}
+
+.fo-logout-btn:hover {
+    background: #b02a2a !important;
+    color: #fff !important;
+}
+
+.fo-signin-btn {
+    border: 2px solid #fff !important;
+    color: #fff !important;
+    background: transparent !important;
+}
+
+.fo-signin-btn:hover {
+    background: #fff !important;
+    color: #056a3a !important;
+}
+
+.fo-signup-btn {
+    background: linear-gradient(135deg, #fa9c23, #fd750d) !important;
+    box-shadow: 0 6px 16px rgba(250, 156, 35, 0.4) !important;
+}
+
+.fo-burger {
+    color: #fff !important;
+    border-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.fo-admin-link {
+    color: rgba(255, 255, 255, 0.65) !important;
+}
+
+
+/* 3. AUTH PAGES = white card on the food background */
+
+.sh-card {
+    background: #ffffff !important;
+    border-radius: 16px !important;
+    box-shadow: 0 16px 40px rgba(5, 106, 58, 0.18) !important;
+}
+
+.sh-title {
+    color: #078347 !important;
+}
+
+
+/* 4. ALL primary buttons = GREEN (matches dashboard) */
+
+.sh-btn,
+.sh-btn:hover,
+.wrapper form .btn {
+    background: #078347 !important;
+    border-color: #078347 !important;
+    color: #fff !important;
+}
+
+.sh-btn:hover {
+    background: #056a3a !important;
+}
+
+.sh-btn-outline {
+    border-color: #078347 !important;
+    color: #078347 !important;
+    background: transparent !important;
+}
+
+.sh-btn-outline:hover {
+    background: #078347 !important;
+    color: #fff !important;
+}
+
+.btn-danger,
+.btn-primary {
+    background: #078347 !important;
+    border-color: #078347 !important;
+}
+
+
+/* Inputs */
+
+.sh-input:focus,
+.sh-card input:focus {
+    border-color: #078347 !important;
+    box-shadow: 0 0 0 3px rgba(7, 131, 71, 0.15) !important;
+}
+
+
+/* ============ LANDING + FOOTER ============ */
+
+.landing {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 0;
+    flex-wrap: wrap;
+}
+
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.hero-badge {
+    display: inline-block;
+    background: rgba(7, 131, 71, 0.12);
+    color: #078347;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 16px;
+}
+
+.hero-title {
+    font-family: Georgia, serif;
+    font-size: 44px;
+    font-weight: 800;
+    color: #056a3a;
+    line-height: 1.1;
+    margin: 0 0 16px;
+}
+
+.hero-title span {
+    color: #fa9c23;
+}
+
+.hero-quote {
+    font-size: 18px;
+    color: #455a64;
+    line-height: 1.6;
+    max-width: 480px;
+    margin-bottom: 24px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 28px;
+}
+
+.hero-cta {
+    background: linear-gradient(135deg, #078347, #056a3a);
+    color: #fff !important;
+    padding: 14px 28px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    box-shadow: 0 6px 18px rgba(7, 131, 71, 0.35);
+    transition: transform 0.2s;
+}
+
+.hero-cta:hover {
+    transform: translateY(-2px);
+}
+
+.hero-cta-outline {
+    background: transparent;
+    border: 2px solid #078347;
+    color: #078347 !important;
+    padding: 12px 26px;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.hero-cta-outline:hover {
+    background: #078347;
+    color: #fff !important;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 28px;
+}
+
+.hero-stats div {
+    display: flex;
+    flex-direction: column;
+}
+
+.hero-stats strong {
+    font-family: Georgia, serif;
+    font-size: 26px;
+    color: #056a3a;
+}
+
+.hero-stats span {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+.hero-image {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 460px;
+    border-radius: 24px;
+    box-shadow: 0 20px 50px rgba(5, 106, 58, 0.25);
+    object-fit: cover;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 30px 0;
+}
+
+.feature {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.feature h3 {
+    font-family: Georgia, serif;
+    color: #056a3a;
+    margin: 0 0 8px;
+}
+
+.feature p {
+    color: #6b7280;
+    font-size: 14px;
+    margin: 0;
+}
+
+
+/* Footer */
+
+.fo-footer {
+    background: #056a3a;
+    color: #e8f5ee;
+    margin-top: 60px;
+    padding: 40px 20px 0;
+}
+
+.fo-footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 30px;
+    padding-bottom: 30px;
+}
+
+.fo-footer-brand {
+    font-family: Georgia, serif;
+    color: #fff;
+    margin: 0 0 8px;
+}
+
+.fo-footer-col h4 {
+    color: #fa9c23;
+    margin: 0 0 12px;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.fo-footer-col p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #cfe6d8;
+}
+
+.fo-footer-col a {
+    display: block;
+    color: #cfe6d8;
+    text-decoration: none;
+    font-size: 14px;
+    margin: 6px 0;
+}
+
+.fo-footer-col a:hover {
+    color: #fa9c23;
+}
+
+.fo-footer-bottom {
+    text-align: center;
+    padding: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    font-size: 13px;
+    color: #9fc4af;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 32px;
+    }
+    .features,
+    .fo-footer-inner {
+        grid-template-columns: 1fr;
+    }
+}

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-
+import Landing from "./Components/Landing";
 import Home from "./Components/Home";
 import Header from "./Components/layout/Header";
 import Footer from "./Components/layout/Footer";
@@ -47,7 +47,7 @@ function App() {
       <Header />
       <main className="container container-fluid py-4">
         <Routes>
-          <Route path="/" element={<Home />} />
+        <Route path="/" element={<Landing />} />
           <Route path="/eats/stores/search/:keyword" element={<Home />} />
           <Route path="/eats/stores/:id/menus" element={<Menu />} />
           <Route path="/users/login" element={<Login />} />
