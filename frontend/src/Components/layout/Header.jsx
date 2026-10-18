@@ -47,7 +47,7 @@ const Header = () => {
 
         {/* Actions (desktop) */}
         <div className="fo-actions">
-          {/* Cart — its own button */}
+          {/* Cart */}
           <Link to="/cart" className="fo-cart-btn">
             <span className="fo-cart-icon">🛒</span>
             <span>Cart</span>
@@ -73,16 +73,19 @@ const Header = () => {
             </>
           ) : (
             <>
-              {/* Sign In — outline button */}
               <Link to="/users/login" className="fo-signin-btn">
                 Sign In
               </Link>
-              {/* Sign Up — gradient button */}
               <Link to="/users/signup" className="fo-signup-btn">
                 Sign Up
               </Link>
             </>
           )}
+
+          
+          <Link to="/admin/login" className="fo-admin-link" title="Admin login">
+            🔐 Admin
+          </Link>
         </div>
 
         {/* Mobile burger */}
@@ -127,7 +130,7 @@ const Header = () => {
               </Link>
             </>
           )}
-          <Link to="/users/login" className="fo-mobile-link fo-admin" onClick={() => setMenuOpen(false)}>
+          <Link to="/admin/login" className="fo-mobile-link fo-admin" onClick={() => setMenuOpen(false)}>
             ⚙️ Admin Login
           </Link>
         </div>

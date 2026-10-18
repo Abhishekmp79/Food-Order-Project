@@ -74,7 +74,7 @@ const Register = () => {
         }
     };
 
-    <BackButton to="/" />
+  
 
     return (
         <>

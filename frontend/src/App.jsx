@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { ToastContainer } from "react-toastify";
@@ -19,6 +19,8 @@ import Cart from "./Components/cart/Cart";
 import OrderSuccess from "./Components/cart/OrderSuccess";
 import ListOrders from "./Components/order/ListOrders";
 import OrderDetails from "./Components/order/OrderDetails";
+import AdminLogin from "./Components/admin/AdminLogin";
+import AdminDashboard from "./Components/admin/AdminDashboard";
 import { loadUser } from "./redux/actions/userActions";
 import { createOrder } from "./redux/actions/orderActions";
 
@@ -27,18 +29,20 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // 🛡️ DEDUP GUARD — ensures the order is created exactly ONCE per payment
+  const handledSessionRef = useRef(null);
+
   useEffect(() => {
     dispatch(loadUser());
   }, [dispatch]);
 
-  // ✅ KEY FIX: detect Stripe session_id ANYWHERE in the URL after payment.
-  // Works even when Render rewrites /success → /index.html
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const sessionId = params.get("session_id");
-    if (sessionId) {
-      dispatch(createOrder(sessionId));   // creates the order in DB
-      navigate("/success", { replace: true }); // clean URL + show success page
+    if (sessionId && handledSessionRef.current !== sessionId) {
+      handledSessionRef.current = sessionId; // mark as handled BEFORE dispatch
+      dispatch(createOrder(sessionId));
+      navigate("/success", { replace: true });
     }
   }, [location.search, dispatch, navigate]);
 
@@ -47,7 +51,7 @@ function App() {
       <Header />
       <main className="container container-fluid py-4">
         <Routes>
-        <Route path="/" element={<Landing />} />
+          <Route path="/" element={<Landing />} />
           <Route path="/eats/stores/search/:keyword" element={<Home />} />
           <Route path="/eats/stores/:id/menus" element={<Menu />} />
           <Route path="/users/login" element={<Login />} />
@@ -62,6 +66,8 @@ function App() {
           <Route path="/success" element={<OrderSuccess />} />
           <Route path="/eats/orders/me/myOrders" element={<ListOrders />} />
           <Route path="/eats/orders/:id" element={<OrderDetails />} />
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminDashboard />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>
