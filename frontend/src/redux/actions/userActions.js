@@ -18,7 +18,6 @@ import {
     resetPasswordFail,
 } from "../slices/userSlice";
 
-
 // LOGIN
 export const login = (email, password) => async(dispatch) => {
     try {
@@ -28,10 +27,14 @@ export const login = (email, password) => async(dispatch) => {
             email,
             password,
         });
+
         if (data.token) localStorage.setItem("token", data.token);
         dispatch(loginSuccess(data.data.user));
     } catch (error) {
-        dispatch(loginFail(error.response ? .data ? .message || "Login Failed"));
+        const msg =
+            (error.response && error.response.data && error.response.data.message) ||
+            "Login Failed";
+        dispatch(loginFail(msg));
     }
 };
 
@@ -46,10 +49,14 @@ export const register = (userData) => async(dispatch) => {
                 headers: { "Content-Type": "application/json" },
             }
         );
+
         if (data.token) localStorage.setItem("token", data.token);
         dispatch(loginSuccess(data.data.user));
     } catch (error) {
-        dispatch(loginFail(error.response ? .data ? .message));
+        const msg =
+            (error.response && error.response.data && error.response.data.message) ||
+            "Register Failed";
+        dispatch(loginFail(msg));
     }
 };
 
@@ -62,7 +69,9 @@ export const loadUser = () => async(dispatch) => {
 
         dispatch(loginSuccess(data.user));
     } catch (error) {
-        dispatch(loadUserFail(error.response ? .data ? .message));
+        const msg =
+            error.response && error.response.data && error.response.data.message;
+        dispatch(loadUserFail(msg));
     }
 };
 
@@ -77,7 +86,9 @@ export const updateProfile = (userData) => async(dispatch) => {
 
         dispatch(updateSuccess(data.success));
     } catch (error) {
-        dispatch(updateFail(error.response ? .data ? .message));
+        const msg =
+            error.response && error.response.data && error.response.data.message;
+        dispatch(updateFail(msg));
     }
 };
 
@@ -86,14 +97,13 @@ export const updatePassword = (passwords) => async(dispatch) => {
     try {
         dispatch(updateRequest());
 
-        const { data } = await API.put(
-            "/v1/users/password/update",
-            passwords
-        );
+        const { data } = await API.put("/v1/users/password/update", passwords);
 
         dispatch(updateSuccess(data.success));
     } catch (error) {
-        dispatch(updateFail(error.response ? .data ? .message));
+        const msg =
+            error.response && error.response.data && error.response.data.message;
+        dispatch(updateFail(msg));
     }
 };
 
@@ -102,14 +112,13 @@ export const forgotPassword = (email) => async(dispatch) => {
     try {
         dispatch(forgotPasswordRequest());
 
-        const { data } = await API.post(
-            "/v1/users/forgetPassword",
-            email
-        );
+        const { data } = await API.post("/v1/users/forgetPassword", email);
 
         dispatch(forgotPasswordSuccess(data.success));
     } catch (error) {
-        dispatch(forgotPasswordFail(error.response ? .data ? .message));
+        const msg =
+            error.response && error.response.data && error.response.data.message;
+        dispatch(forgotPasswordFail(msg));
     }
 };
 
@@ -119,13 +128,15 @@ export const resetPassword = (token, passwords) => async(dispatch) => {
         dispatch(resetPasswordRequest());
 
         const { data } = await API.patch(
-            `/v1/users/resetPassword/${token}`,
+            "/v1/users/resetPassword/" + token,
             passwords
         );
 
         dispatch(resetPasswordSuccess(data.success));
     } catch (error) {
-        dispatch(resetPasswordFail(error.response ? .data ? .message));
+        const msg =
+            error.response && error.response.data && error.response.data.message;
+        dispatch(resetPasswordFail(msg));
     }
 };
 
@@ -133,11 +144,12 @@ export const resetPassword = (token, passwords) => async(dispatch) => {
 export const logout = () => async(dispatch) => {
     try {
         await API.get("/v1/users/logout");
+
         localStorage.removeItem("token");
-
         dispatch(logoutSuccess());
-
     } catch (error) {
-        dispatch(logoutFail(error.response ? .data ? .message));
+        const msg =
+            error.response && error.response.data && error.response.data.message;
+        dispatch(logoutFail(msg));
     }
 };
